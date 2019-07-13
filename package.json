@@ -1,0 +1,14 @@
+{
+  "name": "wk-form-validator",
+  "version": "1.0.0",
+  "description": "Simple JavaScript library for easy client-side form validation",
+  "main": "src/index.js",
+  "scripts": {
+    "test": "jest"
+  },
+  "author": "Szymon Wojakowski",
+  "license": "MIT",
+  "devDependencies": {
+    "jest": "^24.8.0"
+  }
+}
