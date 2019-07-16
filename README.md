@@ -9,7 +9,7 @@ Clone or download repository and get minified `.js` file from **dist** folder, t
 <head>
 </head>
 <body>
-
+	
 	<script src="/path/to/file/wk-form-validator.min.js"></script>
 </body>
 </html>
