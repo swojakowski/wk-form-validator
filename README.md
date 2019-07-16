@@ -35,7 +35,7 @@ Here is an example how script is intended to work:
 	</div>
 </form>
 ```
-Create your form. Give each input unique name (if you created radio buttons group they should have the same name - the only exception). Name cannot start with number and must consist of letters, numbers, `-` and `_` only. List of supported form elements can be found here.
+Create your form. Give each input unique name (if you created radio buttons group they should have the same name - the only exception). Name cannot start with number and must consist of letters, numbers, `-` and `_` only. List of supported form elements can be found [here](#supported-form-elements).
 
 If you want to give the user feedback about what he did wrong add an element script will print error messages to. That elements (called from now error message boxes) should have the same CSS class and another class or ID that will be unique for that specific error box and will contain name of the input the box is added for.
 
@@ -85,7 +85,7 @@ As config argument you must pass a configuration object which will tell the scri
 | inputMsgBoxActiveClass | *String*  | 'active' | No | CSS class name to add to the error message box to show it (showing and hiding error message boxes should be done using CSS only) |
 | inputMsgBoxSelectorPattern | *String*  | '.%{name}-incorrect-msg' | No | Valid CSS selector to use to get access to single error message box. '%{name}' is dynamic part of the selector, it will be replaced by name of the input error message box is added for. It is very important to make this selector unique, it can be either ID selector or CSS class selector, dynamic name part cannot be ommited but you can change it position in the pattern. |
 | validationErrorCallback | *function* | null | No | Optional callback function. It will be executed each time user submits the form and the form fails the validation |
-| schema | *Object* | - | Yes | Object contains validation rules for each input you want to check. More information about schema object format can be found here |
+| schema | *Object* | - | Yes | Object contains validation rules for each input you want to check. More information about schema object format can be found below |
 
 ### schema object
 Inside a schema object create a property for each input of selected form you want to check. If input name contains `-` write it in camelCase notation and remove any `-` from the end if there is any.
@@ -126,5 +126,93 @@ Each time form is submitting script will test each configured in schema object i
 ### Available tests
 Every test must have a value property of specific type and can have custom error message (msg property).
 
+
 #### required
 Test for input presence. Tests if input value is not equal to `""` or input is checked (for checkboxes) or one input of group is checked (for radio buttons group) 
+
+**properties**
+
+| name | data type | example |
+| :---: | :---: | :---: |
+| value | *Boolean* | true |
+| msg | *String* | 'This field is required' |
+
+#### &nbsp;
+#### minLength/maxLength
+Test for length of the value of input. Only for text-based inputs (rule will not work for input[type=number], checkbox and radio button). Value is a number of min/max number of characters.
+
+**properties**
+
+| name | data type | example |
+| :---: | :---: | :---: |
+| value | *Number* | 10 |
+| msg | *String* | 'Maximum length of this input is 10 characters' |
+
+#### &nbsp;
+#### pattern
+Regular expression test for text-based inputs (same exclusions as for min/maxLength)
+
+**properties**
+
+| name | data type | example |
+| :---: | :---: | :---: |
+| value | *RegExp Object* | `/^[0-9\s]+$/` |
+| msg | *String* | 'May contain only digits and spaces ' |
+
+
+#### &nbsp;
+#### exactValue
+Checks if input value is exactly a value provided in this rule. Supports including in string values from other inputs in the form by using `%{INPUT_NAME}` syntax inside the string.
+
+Does not work for `<select>`, `<input type="checkbox"/>` and  `<input type="radio"/>`
+
+**properties**
+
+| name | data type | example |
+| :---: | :---: | :---: |
+| value | *String*  | 'My name is %{first-name}' |
+| msg | *String* | 'Value does not match requirements' |
+| caseSensitive | *Boolean* | `true` by default |
+| varSyntax | *String*  | '@@{#}'  optional, can be anything, `#` character represents the place where input name is located, default `%{#}` |
+
+
+#### &nbsp;
+#### min/max
+Used to set the number range for `<input type="number"/>`.
+
+**properties**
+
+| name | data type | example |
+| :---: | :---: | :---: |
+| value | *Number*  | 10 |
+| msg | *String* | 'Minimal number is 10' |
+
+
+#### &nbsp;
+#### step
+Used to set allowed number step for `<input type="number"/>`.
+
+**properties**
+
+| name | data type | example |
+| :---: | :---: | :---: |
+| value | *Number*  | 2 |
+| msg | *String* | 'Have to by a multiple of 2' |
+
+
+## Supported form elements
+Currently supported elements:
+- input
+	- text
+	- number
+	- email
+	- password
+	- tel
+	- date
+	- file
+	- radio
+	- checkbox
+- textarea
+- select
+
+
