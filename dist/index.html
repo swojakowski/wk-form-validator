@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="pl">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.1/css/all.css"
+        integrity="sha384-fnmOCqbTlWIlj8LyTjo7mOUStjsKC4pOpQbqyi7RrhN7udi9RwhKkMHpvLbHG9Sr" crossorigin="anonymous">
+    <link rel="stylesheet" href="./css/main.css?v=1.01">
+    <title>WKFormValidator Demo | Wirtuozi Kodu</title>
+    <link rel="shortcut icon" href="https://wirtuozikodu.pl/public/imgs/favicon.png" type="image/png">
+    <!-- META TAGS -->
+</head>
+
+<body style="overflow-x: hidden">
+    <main>
+        <div class="page-content">
+            <div class="wrapper">
+
+                <div class="ph">
+                    <h1 class="page-heading">
+                        Test form
+                    </h1>
+                    <div class="page-subheading">
+                        validated by WKFromValidator
+                    </div>
+                </div>
+
+                <form action="" id="c-form" class="contact-form" method="POST">
+                    <div class="fg col-2">
+                        <div class="col">
+                            <input type="text" name="text-input" placeholder="Text input (required, minLength: 4, maxLength: 10)">
+                            <div id="text-input-incorrect-label" class="incorrect-label">
+                                
+                            </div>
+                        </div>
+                        <div class="col">
+                            <input type="email" name="email" placeholder="E-mail input (required, exactValue: joe@doe.com)">
+                            <div id="email-incorrect-label" class="incorrect-label">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fg col-2">
+                        <div class="col">
+                            <input type="tel" name="phone" id="phone" placeholder="Phone input (required, may contain only numbers)">
+                            <div class="incorrect-label" id="phone-incorrect-label">
+                                
+                            </div>
+                        </div>
+                        <div class="col">
+                            <input type="password" name="password" placeholder="Password input (required, minLength: 8, at least 1 special char, 1 digit, 1 uppercase letter)">
+                            <div id="password-incorrect-label" class="incorrect-label">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fg col-2">
+                        <div class="col">
+                            <input type="number" name="number-input" id="num" placeholder="Number input (required, max:100, min: 10, step: 10)">
+                            <div class="incorrect-label" id="number-input-incorrect-label">
+                                
+                            </div>
+                        </div>
+                        <div class="col">
+                            <input type="date" name="date" placeholder="Date input (required)">
+                            <div id="date-incorrect-label" class="incorrect-label">
+                                This field is required (in-HTML msg)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fg col-2">
+                        <div class="col">
+                            <input type="file" name="file-input" id="file" placeholder="File input (required)">
+                            <div class="incorrect-label" id="file-input-incorrect-label">
+                                No file choosen!
+                            </div>
+                        </div>
+                        <div class="col">
+                            <select name="select" id="select">
+                                <option value="">Select your country</option>
+                                <option value="pl">Poland</option>
+                                <option value="gb">Great Britain</option>
+                                <option value="de">Germany</option>
+                            </select>
+                            <div id="select-incorrect-label" class="incorrect-label">
+                                This field is required (in-HTML msg)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fg col-2">
+                        <div class="col">
+                            <p>Radio buttons (One radio option must be selected)</p>
+                            <label for="radio1">
+                                <input type="radio" name="radio-input" id="radio1" value="radio1"> Option 1
+                            </label>
+                            <label for="radio2">
+                                <input type="radio" name="radio-input" id="radio2" value="radio2"> Option 2
+                            </label>
+                            <label for="radio3">
+                                <input type="radio" name="radio-input" id="radio3" value="radio3"> Option 3
+                            </label>
+                            <label for="radio4">
+                                <input type="radio" name="radio-input" id="radio4" value="radio4"> Option 4
+                            </label>
+                            <div class="incorrect-label" id="radio-input-incorrect-label">
+                                Select one option!
+                            </div>
+                        </div>
+                        <div class="col">
+                            <p>
+                                Checkbox buttons (library doesn't support array-type input names, only single checkboxes)
+                            </p>
+                            <label for="c1">
+                                <input type="checkbox" name="c-input1" id="c1" value="c1"> Option 1
+                            </label>
+                            <label for="c2">
+                                <input type="checkbox" name="c-input2" id="c2" value="c2"> Option 2 (required)
+                            </label>
+                            <div id="c-input2-incorrect-label" class="incorrect-label">
+                                This option is required (in-HTML msg)
+                            </div>
+                            <label for="c3">
+                                <input type="checkbox" name="c-input3" id="c3" value="c3"> Option 3
+                            </label>
+                            <label for="c4">
+                                <input type="checkbox" name="c-input4" id="c4" value="c4"> Option 4 (required)
+                            </label>
+                            <div id="c-input4-incorrect-label" class="incorrect-label">
+                                This option is required (in-HTML msg)
+                            </div>
+                        </div>
+                    </div>
+                    <div class="fg">
+                        <textarea name="msg" id="msg">Textarea (required, case-sensitive, cutosm template var syntax, exact value: "I live in VALUE_FROM_SELECT and I have VALUE_FROM_NUMBER_INPUT years of experience in webdev")</textarea>
+                        <div class="incorrect-label" id="msg-incorrect-label">
+                                
+                            </div>
+                    </div>
+                    
+                    <div class="fg">
+                        <input type="submit" value="Wyślij zapytanie">
+                        <div id="f-err-msg"></div>
+                    </div>
+                </form>
+            </div>
+        </div>
+        <script src="./wk-form-validator.js"></script>
+        <!-- <script src="../src/index.js"></script> -->
+        <script>
+            var v = new WKFormValidator("#c-form", {
+                inputMsgBoxSelectorPattern: "#%{name}-incorrect-label",
+                inputMsgBoxClass: 'incorrect-label',
+                validationErrorCallback: function(){
+                    alert('We have some errors! :c');
+                },
+                schema: {
+                    textInput: {
+                        required: {
+                            value: true,
+                            msg: "This field is required"
+                        },
+                        minLength: {
+                            value: 4,
+                            msg: "This field must contain at least 4 characters"
+                        },
+                        maxLength: {
+                            value: 10,
+                            msg: "This field must at most 10 characters"
+                        }
+                    },
+                    email: {
+                        required: {
+                            value: true,
+                            msg: "This field is required"
+                        },
+                        exactValue: {
+                            value: "joe@doe.com",
+                            msg: "Must contain joe@doe.com",
+                            caseSensitive: false
+                        }
+                    },
+                    phone: {
+                        required: {
+                            value: true,
+                            msg: "This field is required"
+                        },
+                        pattern: {
+                            value: /^[0-9\s]+$/,
+                            msg: "May contain only digits"
+                        }
+                    },
+                    password: {
+                        required: {
+                            value: true,
+                            msg: "This field is required"
+                        },
+                        minLength: {
+                            value: 8,
+                            msg: "Must contain at least 8 characters"
+                        },
+                        pattern: {
+                            value: /^(?=.*[a-z])(?=.*[A-Z])(?=.*[0-9])(?=.*[!@#\$%\^&\*])/,
+                            msg: "Password must conists of at least 1 uppercase letter, 1 digit and 1 special character [!,@,#,$,%,^,&,*]"
+                        }
+                    },
+                    numberInput: {
+                        required: {
+                            value: true,
+                            msg: "This field is required"
+                        },
+                        min: {
+                            value: 10,
+                            msg: "Minimum value is 10"
+                        },
+                        max: {
+                            value: 100,
+                            msg: "Maximum value is 100"
+                        },
+                        step: {
+                            value: 10,
+                            msg: "Input value should be a multiple of 10"
+                        }
+                    },
+                    date: {
+                        required: true
+                    },
+                    fileInput: {
+                        required: true
+                    },
+                    select: {
+                        required: true
+                    },
+                    radioInput: {
+                        required: true
+                    },
+                    cInput2: {
+                        required: true
+                    },
+                    cInput4: {
+                        required: true
+                    },
+                    msg: {
+                        required: {
+                            value: true,
+                            msg: "This field is required"
+                        },
+                        exactValue: {
+                            value: "I live in *{select} and I have *{number-input} years of experience in webdev",
+                            varSyntax: "*{#}",
+                            msg: "Value is incorrect"
+                        }
+                    }
+                }
+            })
+        </script>
+    </main>
+</body>
+
+</html>
