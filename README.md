@@ -51,9 +51,9 @@ To initialize library add another `<script>` tag after WK Form Validator import
 </head>
 <body>
     <script src="/path/to/file/wk-form-validator.min.js"></script>
-	<script>
-		//we will configure the library here
-	</script>
+    <script>
+        //we will configure the library here
+    </script>
 </body>
 </html>
 ```
@@ -92,11 +92,11 @@ Inside a schema object create a property for each input of selected form you wan
 ```javascript
 schema: {
     firstName: {
-		//here will go validation rules for input with name 'firstName' or 'first-name' (do not have both name cases inside one form) 
-	},
-	age: {
-		//here will go validation rules for input name 'age'
-	}
+        //here will go validation rules for input with name 'firstName' or 'first-name' (do not have both name cases inside one form) 
+    },
+    age: {
+        //here will go validation rules for input name 'age'
+    }
 }
 ```
 Then it is time to add some validation rules. Each validation rule can be described in two ways - shorter and longer. Shorter one allows only to pass rule value, longer one let you configure individual error messages and other parameters.
@@ -104,20 +104,20 @@ Then it is time to add some validation rules. Each validation rule can be descri
 ```javascript
 //shorthand
 schema: {
-	firstName: {
-		required: true
-		//it's basicly shorthand for rule: {value: VALUE}
-	}
+    firstName: {
+        required: true
+            //it's basicly shorthand for rule: {value: VALUE}
+    }
 }
 
 //custom error message
 schema: {
-	firstName: {
-		required: {
-			value: true,
-			msg: "This field is required"
-		}
-	}
+    firstName: {
+        required: {
+            value: true,
+            msg: "This field is required"
+        }
+    }
 }
 ```
 
