@@ -137,7 +137,7 @@ Test for input presence. Tests if input value is not equal to `""` or input is c
 | value | *Boolean* | true |
 | msg | *String* | 'This field is required' |
 
-#### &nbsp;
+
 #### minLength/maxLength
 Test for length of the value of input. Only for text-based inputs (rule will not work for input[type=number], checkbox and radio button). Value is a number of min/max number of characters.
 
@@ -148,7 +148,7 @@ Test for length of the value of input. Only for text-based inputs (rule will not
 | value | *Number* | 10 |
 | msg | *String* | 'Maximum length of this input is 10 characters' |
 
-#### &nbsp;
+
 #### pattern
 Regular expression test for text-based inputs (same exclusions as for min/maxLength)
 
@@ -160,7 +160,7 @@ Regular expression test for text-based inputs (same exclusions as for min/maxLen
 | msg | *String* | 'May contain only digits and spaces ' |
 
 
-#### &nbsp;
+
 #### exactValue
 Checks if input value is exactly a value provided in this rule. Supports including in string values from other inputs in the form by using `%{INPUT_NAME}` syntax inside the string.
 
@@ -176,7 +176,7 @@ Does not work for `<select>`, `<input type="checkbox"/>` and  `<input type="radi
 | varSyntax | *String*  | '@@{#}'  optional, can be anything, `#` character represents the place where input name is located, default `%{#}` |
 
 
-#### &nbsp;
+
 #### min/max
 Used to set the number range for `<input type="number"/>`.
 
@@ -188,7 +188,6 @@ Used to set the number range for `<input type="number"/>`.
 | msg | *String* | 'Minimal number is 10' |
 
 
-#### &nbsp;
 #### step
 Used to set allowed number step for `<input type="number"/>`.
 
@@ -214,5 +213,3 @@ Currently supported elements:
 	- checkbox
 - textarea
 - select
-
-
