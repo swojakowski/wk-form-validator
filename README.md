@@ -90,8 +90,8 @@ As config argument you must pass a configuration object which will tell the scri
 ### schema object
 Inside a schema object create a property for each input of selected form you want to check. If input name contains `-` write it in camelCase notation and remove any `-` from the end if there is any.
 ```javascript
-schema : {
-	firstName: {
+schema: {
+    firstName: {
 		//here will go validation rules for input with name 'firstName' or 'first-name' (do not have both name cases inside one form) 
 	},
 	age: {
