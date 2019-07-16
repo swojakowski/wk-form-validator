@@ -9,8 +9,8 @@ Clone or download repository and get minified `.js` file from **dist** folder, t
 <head>
 </head>
 <body>
-	
-	<script src="/path/to/file/wk-form-validator.min.js"></script>
+
+    <script src="/path/to/file/wk-form-validator.min.js"></script>
 </body>
 </html>
 ```
@@ -24,15 +24,15 @@ The idea behind this library is quite simple:
 Here is an example how script is intended to work:
 ```html
 <form action="" method="">
-	<input type="text" name="first-name">
-	<div class="incorrect-msg first-name-incorrect-msg">
-		//any error messages for input with name 'first-name' will be printed here
-	</div>
+    <input type="text" name="first-name">
+    <div class="incorrect-msg first-name-incorrect-msg">
+        //any error messages for input with name 'first-name' will be printed here
+    </div>
 	
-	<input type="number" name="age">
-	<div class="incorrect-msg age-incorrect-msg">
-		//any error messages for input with name 'age' will be printed here
-	</div>
+    <input type="number" name="age">
+    <div class="incorrect-msg age-incorrect-msg">
+        //any error messages for input with name 'age' will be printed here
+    </div>
 </form>
 ```
 Create your form. Give each input unique name (if you created radio buttons group they should have the same name - the only exception). Name cannot start with number and must consist of letters, numbers, `-` and `_` only. List of supported form elements can be found [here](#supported-form-elements).
