@@ -55,6 +55,7 @@ new WKFormValidator('#my-form', config);
 ```
 #### config
 As config argument you must pass a configuration object which will tell the script how to deal with your form. Available options:
+
 |  property name  |  data type  |  default value  | required | description |
 | --- | --- | --- | --- | --- |
 | inputErrorClass | *String*  | 'incorrect' | No | CSS class name that should be added on the input when it will not pass validation |
