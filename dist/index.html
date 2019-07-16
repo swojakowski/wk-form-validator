@@ -144,14 +144,14 @@
                 </form>
             </div>
         </div>
-        <script src="./wk-form-validator.js"></script>
+        <script src="./wk-form-validator.min.js"></script>
         <!-- <script src="../src/index.js"></script> -->
         <script>
             var v = new WKFormValidator("#c-form", {
                 inputMsgBoxSelectorPattern: "#%{name}-incorrect-label",
                 inputMsgBoxClass: 'incorrect-label',
                 validationErrorCallback: function(){
-                    alert('We have some errors! :c');
+                    alert('We have some errors! :c [this is a form error callback]');
                 },
                 schema: {
                     textInput: {
