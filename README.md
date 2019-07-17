@@ -215,7 +215,7 @@ Currently supported elements:
 - select
 
 ## TO DO
-- [] default, global error messages for specific type of rule
-- [] add some examples to readMe
-- [] remove inputErrorMsgBoxClass property, script should be able to do its job without it
-- [] add plugins support
+- [ ] default, global error messages for specific type of rule
+- [ ] add some examples to readMe
+- [ ] remove inputErrorMsgBoxClass property, script should be able to do its job without it
+- [ ] add plugins support
